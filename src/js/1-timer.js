@@ -2,6 +2,7 @@ import flatpickr from 'flatpickr'
 import 'flatpickr/dist/flatpickr.min.css'
 import iziToast from 'izitoast'
 import 'izitoast/dist/css/iziToast.min.css'
+import errorIcon from '../img/bi_x-octagon.svg'
 
 const options = {
   enableTime: true,
@@ -41,7 +42,7 @@ function convertMsPad(value) {
 }
 
 const myInput = document.querySelector('#datetime-picker')
-const fp = flatpickr(myInput, options)
+flatpickr(myInput, options)
 
 function handleClose(selectedDates) {
   const selectedDateTime = new Date(selectedDates[0]).getTime()
@@ -52,7 +53,7 @@ function handleClose(selectedDates) {
       messageColor: 'white',
       theme: 'dark', // dark
       color: '#ef4040',
-      iconUrl: '/img/webp/bi_x-octagon.svg'
+      iconUrl: errorIcon
     })
     startBtn.disabled = true
     return
@@ -76,6 +77,9 @@ function handleClick() {
     if (END_DATE - Date.now() <= 0) {
       myInput.disabled = false
       clearInterval(intervalId)
+      for (const key in elements) {
+        elements[key].textContent = convertMsPad(0)
+      }
       return
     }
     const timeLeft = convertMs(END_DATE - Date.now())
@@ -83,5 +87,6 @@ function handleClick() {
       elements[key].textContent = convertMsPad(timeLeft[key])
     }
   }
+  repeat()
   const intervalId = setInterval(repeat, 1000)
 }
