@@ -14,6 +14,8 @@ const options = {
 
 let END_DATE = null
 
+let intervalId = null
+
 const startBtn = document.querySelector('[data-start]')
 startBtn.disabled = true
 startBtn.addEventListener('click', handleClick)
@@ -87,6 +89,6 @@ function handleClick() {
       elements[key].textContent = convertMsPad(timeLeft[key])
     }
   }
-  const intervalId = setInterval(repeat, 1000)
+  intervalId = setInterval(repeat, 1000)
   repeat()
 }
