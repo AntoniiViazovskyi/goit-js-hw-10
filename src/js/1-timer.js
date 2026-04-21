@@ -46,7 +46,7 @@ flatpickr(myInput, options)
 
 function handleClose(selectedDates) {
   const selectedDateTime = new Date(selectedDates[0]).getTime()
-  if (selectedDateTime < Date.now()) {
+  if (selectedDateTime <= Date.now()) {
     iziToast.show({
       position: 'topRight',
       message: 'Please choose a date in the future',
@@ -87,6 +87,6 @@ function handleClick() {
       elements[key].textContent = convertMsPad(timeLeft[key])
     }
   }
-  repeat()
   const intervalId = setInterval(repeat, 1000)
+  repeat()
 }
