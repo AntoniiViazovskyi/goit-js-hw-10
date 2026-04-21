@@ -1,18 +1,98 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* Common styles */
-@import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #2e2f42;
+}
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+input:focus-visible {
+  outline: none;
+}
+
+#datetime-picker {
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  max-width: 272px;
+  max-height: 40px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  padding: 8px 118px 8px 16px;
+  margin: 36px 8px 32px 156px;
+  transition: border 0.25s ease;
+}
+
+#datetime-picker:hover {
+  border: 1px solid #000;
+}
+
+#datetime-picker:focus {
+  border: 1px solid #4e75ff;
+}
+
+#datetime-picker:disabled {
+  border: 1px solid #808080;
+  background-color: #fafafa;
+  color: #808080;
+}
+
+button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 75px;
+  height: 40px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  border: none;
+  transition: background-color 0.25s ease;
+}
+
+button:enabled {
+  background-color: #4e75ff;
+  color: #fff;
+}
+
+button:hover:enabled,
+button:focus:enabled {
+  background-color: #6c8cff;
+}
+
+button:disabled {
+  background-color: #cfcfcf;
+}
+
+.timer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 24px;
+  width: 346px;
+  height: 72px;
+  margin-left: 156px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 0px;
+  height: 72px;
+}
+
+.value {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+.label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
